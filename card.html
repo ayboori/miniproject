@@ -16,70 +16,85 @@
 <style>
     .box {
         background-color: lightgreen;
+        border: 1px solid;
         margin: 50px auto 30px auto;
         height: 700px;
-        width: 1100px;
+        width: 1200px;
         text-align: center;
         padding-top: 10px;
     }
 
     .left {
-        width: 600px;
-        height: 700px;
-        /* background-color: antiquewhite; */
+        width: 640px;
+        height: 400px;
         float: left;
         padding: 5px;
+        border: 1px solid;
     }
 
     .right {
-        width: 500px;
-        height: 700px;
-        /* background-color: aqua; */
+        width: 550px;
+        height: 400px;
         float: right;
         padding: 5px 10px;
         text-align: right;
+        border: 1px solid;
     }
-    .pic{
+
+    .pic {
         max-width: 530px;
-        height: 400px;
+        height: 300px;
         background-color: azure;
-    }
-    .right>p{
-        padding: 5px;
+        margin: 0px 0px 10px 0px;
     }
 
+    .right>button {
+        margin-top: 100px;
+    }
 
+    textarea {
+        vertical-align: middle;
+        width: 90%;
+        height: 50px;
+    }
+    .con{
+        margin-top: 10px;
+        width: 100%;
+        height: 200px;
+        border: 1px solid black;
+    }
 </style>
 
 <body>
     <div class="box">
         <div class="left">
             <div class="alert alert-success" role="alert">
-                [팀]과 [자신]에 대한 설명 및 MBTI<br>
-                -> 대답<br>
-                ~</div>
+                <p>자신에 대한 설명 및 MBTI</p>
+                <p id="ans1">-> 대답</p></div>
             <div class="alert alert-success" role="alert">
-                객관적으로 살펴본 자신의 장점<br>
-                -> 대답<br>
-                ~</div>
+                <p>객관적인 자신의 장점</p>
+                <p id="ans2">-> 대답</p></div>
             <div class="alert alert-success" role="alert">
-                자신의 스타일 협업 스타일 소개<br>
-                -> 대답<br
-                ~></div>
-            <div class="alert alert-success" role="alert">
-                우리 팀만의 특징과 추구하는 궁극적인 목표<br>
-                -> 대답<br>
-                ~</div>
+                <p>자신의 협업 스타일 소개</p>
+                <p id="ans3">-> 대답</p></div>
         </div>
         <div class="right">
             <h3><b>이름</b></h3>
-            <div class="pic">
+            <div class="pic" id="profileimg"></div>
+            <a id="blogaddr" href="https://velog.io/@j2mie561"><button type="button" class="btn btn-light">블로그 보러가기!</button></a>
+        </div>
+        <div class="card-body">
+            <div>
+                <textarea></textarea>
+                <button type="button" class="btn btn-light" onClick="javascript:addReply();">댓글 달기</button>
             </div>
-            <a href="https://velog.io/@j2mie561"><p>블로그 보러가기!</p></a> 
-            <!--다른 버튼 찾아보기-->
+            <div class="con">
+
+            </div>
         </div>
     </div>
-    </div>
+
+
 </body>
 
 </html>

@@ -1,0 +1,117 @@
+/* teamcard.html 관련 css */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+/* 종우 : 초기페이지에 맞는 폰트 넣었습니다. 타이틀에 적용함 */
+
+@font-face {
+    font-family: 'AYcard'; /*font 이름*/
+    font-style: 'normal'; /* font 스타일 정의 (기울임, 일반) */
+    font-weight: 400; /* font 굵기 정의 */
+    src: url('/static/fonts/BR.otf');  /* 파일 위치 정의 */
+}
+/* 반짝 */
+@-webkit-keyframes sparkle {
+    from {
+      background-position: 0% 100%;
+    }
+    to {
+      background-position: 200% 100%;
+    }
+  }
+  @keyframes sparkle {
+    from {
+      background-position: 0% 100%;
+    }
+    to {
+      background-position: 200% 100%;
+    }
+  }
+
+    .title {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../images/link.jpg") no-repeat;
+        /* 배경 이미지 파일 내에서 읽어옴, + 배경이미지"만" 투명도 설정  */
+        margin: 50px auto 30px auto;
+        height: 200px;
+        width: 1200px;
+        text-align: center;
+        /* 버튼 내의 글씨 가운데 정렬 > 정렬 나중에 수정 가능*/
+        color: rgb(0, 255, 0);
+        /* 글씨 색상 * > 수정 가능 */
+        font-size: 70px;
+        font-weight: 400;
+        padding: 45px 0px 0px 0px;
+        font-family: 'Hahmlet', serif
+    }
+
+    .list {
+        margin: 30px auto 10px auto;
+        height: 150px;
+        width: 1200px;
+    }
+
+    .cards {
+        height: 600px;
+        width: 1200px;
+        margin: 30px auto 10px auto;
+        position:relative;
+    }
+    /* 아영님 카드 관련 css */
+    .aycard {
+        font-family: 'AYcard';
+        background-image: url("../images/kirbywallpaper.jpg");
+        height: 600px;
+        width: 1200px;
+        position: absolute;
+        margin:auto;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    .aycard:before {
+        -webkit-animation: sparkle 4s infinite linear;
+                animation: sparkle 4s infinite linear;
+        background: linear-gradient(90deg, #7FEFBD 3%, #FFF689 11%, #ff1dd2 22%, #7FEFBD 33%, #FFF689 41%, #ff94fb 55%, #7FEFBD 66%, #FFF689 77%, #EC0B43 88%, #7FEFBD 100%);
+        background-size: 300% 100%;
+        content: "";
+        position: absolute;
+        left: -8px;
+        top: -8px;
+        width: 102%;
+        height: 102%;
+        border-radius: 4px;
+        filter: blur(3px);
+        z-index: -1;
+        transform: scale(0.99) translateY(3px);
+      }
+    .aycard table{
+        width: 1000px;
+        text-align: center;
+        margin: 10px auto;
+    }
+    .aycard th,td{
+        font-family: 'AYcard';
+        font-size: 25px;
+        color: black;
+        padding:0px;
+
+    }
+    .aycard h1{
+        font-family: 'AYcard';
+        color:deeppink;
+        font-size: 50px;
+        margin : auto;
+        padding-top: 20px;
+        width: 530px;
+        text-shadow: 2PX 3PX 0 lightgray;
+        font-weight: 700;
+    }
+
+    .aycard img{
+        border-radius: 20px;
+    }
+
+    .ayblog{
+        font-family: 'AYcard';
+        padding-top:10px;
+        color: hotpink;
+        font-size :20px;
+    }

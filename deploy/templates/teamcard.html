@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <link href="../static/CSS/styles_ay.css" rel="stylesheet" />
+    <link href="../static/CSS/styles_tc.css" rel="stylesheet" />
+    <link href="../static/CSS/styles_js.css" rel="stylesheet" />
+    <link href="../static/CSS/styles_jh.css" rel="stylesheet" />
+    <link href="../static/CSS/styles_jm.css" rel="stylesheet" />
+
+
+    <!-- 지수님 - 아이콘때문에 단 링크 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../static/CSS/comment.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<script>
+
+    var memid = JSON.parse(localStorage.getItem("member-id"));
+    console.log(memid); // 
+    localStorage.removeItem("member-id");
+
+
+    var aynum = true; // 버튼 토클을 위한 변수
+    var jwnum = true;
+    var jsnum = true;
+    var jmnum = true;
+    var jhnum = true;
+
+    $(document).ready(function () { // 프로그램 실행되자마자는 아무 카드도 안 보임
+        $('.aycard').hide();
+        $('.jwcard').hide();
+        $('.jscard').hide();
+        $('.jhcard').hide();
+        $('.jmcard').hide();
+        $('#ay-comment-body').hide();
+        $('#jw-comment-body').hide();
+        $('#js-comment-body').hide();
+        $('#jh-comment-body').hide();
+        $('#jm-comment-body').hide();
+
+        Buttonreload(memid);
+    });
+    function Buttonreload(mem) {
+        // 클릭한 id에 따라 다른 이벤트 발생하도록 함
+        console.log(mem)
+
+        switch (mem) {
+            case "member1":
+                console.log("aycard");
+                $('.aycard').show();
+                $('.jwcard').hide();
+                $('.jscard').hide();
+                $('.jhcard').hide();
+                $('.jmcard').hide();
+                $('#ay-comment-body').show();
+                $('#jw-comment-body').hide();
+                $('#js-comment-body').hide();
+                $('#jh-comment-body').hide();
+                $('#jm-comment-body').hide();
+                aylisting();
+                // 버튼 클릭 시 버튼의 메타몽 변신!
+                if (aynum == true) {
+                    $('#pic1').attr("src", "../static/images/aymon.jpg");
+                    //aynum = false;
+                } /* else {
+                    $('#pic2').attr("src", "https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg");
+                    num = true;
+                } 되돌리기 할까 말까 고민 중.. */
+                break;
+
+            case "member2":
+                // 버튼 클릭 시 인물 카드 출력
+                console.log("jwcard");
+                $('.aycard').hide();
+                $('.jwcard').show();
+                $('.jscard').hide();
+                $('.jhcard').hide();
+                $('.jmcard').hide();
+                $('#ay-comment-body').hide();
+                $('#jw-comment-body').show();
+                $('#js-comment-body').hide();
+                $('#jh-comment-body').hide();
+                $('#jm-comment-body').hide();
+                jwlisting();
+                // 버튼 클릭 시 버튼의 메타몽 변신!
+                if (jwnum == true) {
+                    $('#pic2').attr("src", "../static/images/jwmon.jpg");
+                }
+                break;
+            case "member3":
+                // 버튼 클릭 시 인물 카드 출력
+                console.log("jscard");
+                $('.aycard').hide();
+                $('.jwcard').hide();
+                $('.jscard').show();
+                $('.jhcard').hide();
+                $('.jmcard').hide();
+                $('#ay-comment-body').hide();
+                $('#jw-comment-body').hide();
+                $('#js-comment-body').show();
+                $('#jh-comment-body').hide();
+                $('#jm-comment-body').hide();
+                jslisting();
+                // 버튼 클릭 시 버튼의 메타몽 변신!
+                if (jsnum == true) {
+                    $('#pic3').attr("src", "../static/images/jsmon.png");
+                }
+                break;
+
+            case "member4":
+                // 버튼 클릭 시 인물 카드 출력
+                console.log("jhcard");
+                $('.aycard').hide();
+                $('.jwcard').hide();
+                $('.jscard').hide();
+                $('.jhcard').show();
+                $('.jmcard').hide();
+                $('#ay-comment-body').hide();
+                $('#jw-comment-body').hide();
+                $('#js-comment-body').hide();
+                $('#jh-comment-body').show();
+                $('#jm-comment-body').hide();
+                jhlisting();
+                // 버튼 클릭 시 버튼의 메타몽 변신!
+                if (jhnum == true) {
+                    $('#pic4').attr("src", "../static/images/jhmon.jpg");
+                }
+                break;
+
+            default:
+                // 버튼 클릭 시 인물 카드 출력
+                console.log("jmcard");
+                $('.aycard').hide();
+                $('.jwcard').hide();
+                $('.jscard').hide();
+                $('.jhcard').hide();
+                $('.jmcard').show();
+                $('#ay-comment-body').hide();
+                $('#jw-comment-body').hide();
+                $('#js-comment-body').hide();
+                $('#jh-comment-body').hide();
+                $('#jm-comment-body').show();
+                jmlisting();
+                // 버튼 클릭 시 버튼의 메타몽 변신!
+                if (jmnum == true) {
+                    $('#pic5').attr("src", "../static/images/jmmon.jpg");
+                }
+                break;
+        }
+    }
+
+    function ayposting() {
+        let aycomment = $('#aycomment').val();
+        let ayname = $('#ayname').val();
+
+        let formData = new FormData();
+        formData.append("aycomment_give", aycomment);
+        formData.append("ayname_give", ayname);
+
+        fetch('/ayintro', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg']);
+            Buttonreload("member1");
+            $('#aycomment').val('');
+            $('#ayname').val('');
+        })
+    }
+
+    function jwposting() {
+        let jwcomment = $('#jwcomment').val();
+        let jwname = $('#jwname').val();
+
+        let formData = new FormData();
+        formData.append("jwcomment_give", jwcomment);
+        formData.append("jwname_give", jwname);
+
+        fetch('/jwintro', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg']);
+            Buttonreload("member2");
+            $('#jwcomment').val('');
+            $('#jwname').val('');
+        })
+    }
+
+    function jsposting() {
+        let jscomment = $('#jscomment').val();
+        let jsname = $('#jsname').val();
+
+        let formData = new FormData();
+        formData.append("jscomment_give", jscomment);
+        formData.append("jsname_give", jsname);
+
+        fetch('/jsintro', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg']);
+            Buttonreload("member3");
+            $('#jscomment').val('');
+            $('#jsname').val('');
+        })
+    }
+
+    function jhposting() {
+        let jhcomment = $('#jhcomment').val();
+        let jhname = $('#jhname').val();
+
+        let formData = new FormData();
+        formData.append("jhcomment_give", jhcomment);
+        formData.append("jhname_give", jhname);
+
+        fetch('/jhintro', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg']);
+            Buttonreload("member4");
+            $('#jhcomment').val('');
+            $('#jhname').val('');
+        })
+    }
+
+    function jmposting() {
+        let jmcomment = $('#jmcomment').val();
+        let jmname = $('#jmname').val();
+
+        let formData = new FormData();
+        formData.append("jmcomment_give", jmcomment);
+        formData.append("jmname_give", jmname);
+
+        fetch('/jmintro', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg']);
+            Buttonreload("default");
+            $('#jmcomment').val('');
+            $('#jmname').val('');
+        })
+    }
+
+    function aylisting() {
+        fetch('/ayintro').then((res) => res.json()).then((data) => {
+            let rows = JSON.parse(data['result']);
+            console.log(rows);
+            $('#ay-comment-output').empty();
+            rows.forEach((a) => {
+                console.log(a)
+                let aycomment = a['aycomment'];
+                let ayname = a['ayname'];
+                if(ayname==null){
+                    ayname = '익명';
+                }
+
+                let temp_html = `<div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p id="commentchar">${aycomment}</p>
+                                            <footer class="blockquote-footer">${ayname}</footer>
+                                        </blockquote>
+                                    </div>
+                                </div>`;
+
+                $('#ay-comment-output').append(temp_html);
+            })
+        })
+    }
+
+    function jwlisting() {
+        fetch('/jwintro').then((res) => res.json()).then((data) => {
+            let rows = JSON.parse(data['result']);
+            console.log(rows);
+            $('#jw-comment-output').empty();
+            rows.forEach((a) => {
+                console.log(a)
+                let jwcomment = a['jwcomment'];
+                let jwname = a['jwname'];
+                if(jwname==null){
+                    jwname = '익명';
+                }
+
+                let temp_html = `<div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p id="commentchar">${jwcomment}</p>
+                                            <footer class="blockquote-footer">${jwname}</footer>
+                                        </blockquote>
+                                    </div>
+                                </div>`;
+
+                $('#jw-comment-output').append(temp_html);
+            })
+        })
+    }
+
+    function jslisting() {
+        fetch('/jsintro').then((res) => res.json()).then((data) => {
+            let rows = JSON.parse(data['result']);
+            console.log(rows);
+            $('#js-comment-output').empty();
+            rows.forEach((a) => {
+                console.log(a)
+                let jscomment = a['jscomment'];
+                let jsname = a['jsname'];
+                if(jsname==null){
+                    jsname = '익명';
+                }
+                let temp_html = `<div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p id="commentchar">${jscomment}</p>
+                                            <footer class="blockquote-footer">${jsname}</footer>
+                                        </blockquote>
+                                    </div>
+                                </div>`;
+
+                $('#js-comment-output').append(temp_html);
+            })
+        })
+    }
+
+    function jhlisting() {
+        fetch('/jhintro').then((res) => res.json()).then((data) => {
+            let rows = JSON.parse(data['result']);
+            console.log(rows);
+            $('#jh-comment-output').empty();
+            rows.forEach((a) => {
+                console.log(a)
+                let jhcomment = a['jhcomment'];
+                let jhname = a['jhname'];
+                if(jhname==null){
+                    jhname = '익명';
+                }
+
+                let temp_html = `<div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p id="commentchar">${jhcomment}</p>
+                                            <footer class="blockquote-footer">${jhname}</footer>
+                                        </blockquote>
+                                    </div>
+                                </div>`;
+
+                $('#jh-comment-output').append(temp_html);
+            })
+        })
+    }
+
+    function jmlisting() {
+        fetch('/jmintro').then((res) => res.json()).then((data) => {
+            let rows = JSON.parse(data['result']);
+            console.log(rows);
+            $('#jm-comment-output').empty();
+            rows.forEach((a) => {
+                console.log(a)
+                let jmcomment = a['jmcomment'];
+                let jmname = a['jmname'];
+                if(jmname==null){
+                    jmname = '익명';
+                }
+
+                let temp_html = `<div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p id="commentchar">${jmcomment}</p>
+                                            <footer class="blockquote-footer">${jmname}</footer>
+                                        </blockquote>
+                                    </div>
+                                </div>`;
+
+                $('#jm-comment-output').append(temp_html);
+            })
+        })
+    }
+</script>
+
+<body>
+    <H1 class='title' onClick="location.href='/'">초록색이 젤다 맞죠? </br></H1> <!-- 클릭 시 메인으로 가는 타이틀 이미지버튼-->
+
+    <table class='list'> <!--가로 200px 이미지 사용해야 함-->
+        <td><button onclick="Buttonreload(this.id)" id='member1'>
+                <img id='pic1' src="https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg"
+                    , width="200px">
+            </button></td>
+        <td><button onclick="Buttonreload(this.id)" id='member2'>
+                <img id='pic2' src="https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg"
+                    , width="200px">
+            </button></td>
+        <td><button onclick="Buttonreload(this.id)" id='member3'>
+                <img id='pic3' src="https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg"
+                    , width="200px">
+            </button></td>
+        <td><button onclick="Buttonreload(this.id)" id='member4'>
+                <img id='pic4' src="https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg"
+                    , width="200px">
+            </button></td>
+        <td><button onclick="Buttonreload(this.id)" id='member5'>
+                <img id='pic5' src="https://images.imyfone.com/kr/assets/article/change-location/pokemonster-ditto.jpg"
+                    , width="200px">
+            </button></td>
+    </table>
+
+    <div class="cards">
+        <div class="aycard">
+            <h1> ✨ALL ABOUT 조아영✨</h1>
+            <TABLE class="aytable">
+                <TD>
+                <TH rowspan="7"> <img src="../static/images/ayphoto.jpg" , width="320px">
+                    <TR>
+                        <TH> 자신에 대한 설명 & MBTI
+                    <TR>
+                        <TD>백앤드 취업을 희망하는 짭전공자입니다 </br>
+                            핑크색💗커비💫젤다⚔️마블🦸뜨개질🧶디저트🍧를 좋아해요!</br>
+                            ESFP입니다 그것도 파워 F.. 극한의 공감쟁이
+                    <TR>
+                        <TH>객관적인 자신의 장점
+                    <TR>
+                        <TD>낯을 별로 가리지 않습니다 </br>
+                            소외되는 분이 없도록 챙기려고 노력합니다
+                    <TR>
+                        <TH>자신의 협업 스타일 소개
+                    <TR>
+                        <TD>팀원끼리 의견을 많이 내고 협의점을 찾는 게 좋습니다 </br>
+                            각자 집중하는 시간엔 집중하고, 상의도 열심히 해요!!
+            </TABLE>
+            <a class="ayblog" href="https://velog.io/@ayoung3052"> 💘ayoung.velog </a>
+        </div>
+        <div class="jwcard">
+            <div class="jwleft">
+                <div class="jwans1">나는 누구인가<br>
+                    <div class="jwans2">ISTP인데 mbti는 잘 안믿는 사람.<br>
+                        내가 좋아하는 즐거운 것을 찾아다님.<br> 하지만 집에 있는걸 좋아함</div>
+                </div>
+                <div class="jwans1">객관적인 자신의 장점<br>
+                    <div class="jwans2">긍정적인 성격. 하지만 부당하거나 말이 되지 않는 것은 싫어한다.<br>
+                        타당한 이유라면 어지간해선 열심히 한다. 늘 즐겁고자 한다.
+                    </div>
+                </div>
+                <div class="jwans1">자신의 협업 스타일 소개
+                    <div class="jwans2">문제를 함께 해결하는 과정이 재미있다.<br>
+                        새로운 기술이나 기능을 익히는 것을 좋아한다.<br>
+                        서로 요청하고, 알려주고. 지적당하고 고치는 것을 즐거워한다.<br>
+                        그것으로 내가 발전할 수 있다면 더 좋다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="jwright">
+                <div class="jwname">최종우</div>
+                <div class="jwprofile"></div>
+                <button class="jwblog_btn" onclick="window.open('https://jonggae.tistory.com/')">
+                    BLOG</button>
+            </div>
+        </div>
+        <div class="jscard">
+            <div class="jsleft">
+                <h1 id="jsfirst">지수는?</h1>
+                <div class="jsleft1">
+                    <div class="jsleftpic1">
+                    </div>
+                    <div class="jsleftwriting1">
+                        백엔드를 준비하고 있는 집이 너무 좋은 집순이 ISFP입니다!<br>
+                        <br>
+                        <p id="jsans2">👋저의 장점은?</p>
+                        ✔실행력! 한다고 마음먹었으면 잘 밀고 나가요.<br>
+                        ✔불편한 일이 있을 때 바로 해결하려고 노력해요.
+                    </div>
+                </div>
+                <div class="jsleft2">
+                    <div class="jsleftpic2">
+                        <h3></h3>
+                    </div>
+                    <div class="jsleftwriting2">
+                        <br><br>
+                        <p id="jsans3">🤝 나의 협업 스타일</p>
+                        팀에 따라 달라져요! 묵묵히 일만 하는게 좋은 스타일도. 수다떨면서 일하고 싶은 스타일도. 잘 맞춰가면서 할 수 있어요!
+                    </div>
+                </div>
+            </div>
+
+            <div class="jsright">
+                <div class="jsrighttitle">
+                    <!-- 오른쪽 칸의 제목입니다 -->
+                    <div style="display:inline-block">
+                        <span style="color:yellow"><i class="bi bi-stars" id="jsstar"></i></span>
+                    </div>
+                    <div style="display:inline-block">
+                        <h1>TMI Time</h1>
+                    </div>
+                    <div style="display:inline-block">
+                        <span style="color:yellow"><i class="bi bi-stars" id="jsstar"></i></span>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- 오른쪽 칸의 본문입니다 -->
+                    <div class="jsright1">
+                        <div class="jsrightpic">
+                            <h3></h3>
+                        </div>
+                        <div class="jsrightwriting">
+                            1. 젤다, 동물의 숲, 포켓몬스터 등 귀여운 게임을 좋아해요!<br><br>
+                            2. 방 탈출을 좋아해요! 공포는 무서워서 아직!😣<br><br>
+                            3. 뜨개질을 좋아해요! 핸드폰가방이 필요해서 하나를 떠 본걸 시작으로 소<br>
+                        </div>
+                    </div>
+                    <div class="jsright2">
+                        품, 인형, 가방을 뜨고 있답니다.<br>
+                        4. 제 이름은 지금이 4번째입니다! 총 이름을 3번이나 바꿨어요. 정말 이런 TMI도 없네요.🤣<br>
+                        <p id="jslast">제 소개는 끝! 친하게 지내봐요! (❁´◡`❁)</p>
+                    </div>
+                </div>
+
+                <div class="jisooaddr">
+                    <!-- 오른쪽 칸의 가장 하단의 블로그 주소입니다 -->
+                    <a href="https://argente29.tistory.com/"> 지수의 티스토리 구경하기! </a>
+                </div>
+            </div>
+        </div>
+        <div class="jmcard">
+            <div class="jmbox">
+                <div class="jmhead">
+                    <h3>박주민 Card</h3>
+                </div>
+                <div class="jmleft">
+                    <div class="jmsbox1">
+                        <p><b>[자신]에 대한 설명 및 MBTI</b><br>
+                            <br>
+                            N이랑 S가 반반 나오는 지금은 INTJ입니다.<br>
+                            집순이라 집에서 할 수 있는 것을 좋아해서 주로 게임이나 보는 걸 합니다<br>
+                            꾸미는 걸 엑셀에서 밖에 없어서 카드 테마를 그걸로 잡았습니다 하하
+                        </p>
+                    </div>
+                    <div class="jmsbox2">
+                        <p><b>객관적인 자신의 장점</b><br>
+                            <br>
+                            사실 장점이자 단점이지만<br>
+                            잘 안되는게 있으면 될 때까지<br> 합니다
+                        </p>
+                    </div>
+                    <div class="jmsbox2">
+                        <p><b>객관적인 자신의 장점</b><br>
+                            <br>
+                            사실 장점이자 단점이지만<br>
+                            잘 안되는게 있으면 될 때까지<br> 합니다
+                        </p>
+                    </div>
+                    <div class="jmsbox3">
+                        <p><b>자신의 협업 스타일 소개</b><br>
+                            <br>
+                            많이 물어보고 알려주고 하는 편입니다<br>
+                            지금은 노력중입니다..ㅎㅎ
+                        </p>
+                    </div>
+                    <a id="jmblogaddr" href="https://velog.io/@j2mie561">
+                        <button type="button" class="btnst">블로그<br>보러가기!</button></a>
+                </div>
+                <div class="jmright">
+                    <div class="jmpic" id="jmprofileimg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="jhcard">
+            <span calss="jhallt">
+
+                <div class="jhtext2"></div>
+                <div class="jhtext3"></div>
+                <div class="jhtext4"></div>
+            </span>
+
+
+            <table class="jhtg">
+                <tbody>
+                    <tr>
+                        <td class="jhtext0">
+                            <div class="jhtext0">
+                        </td>
+
+                        <td class="jhtextti">
+                            <div class="jhtitle">
+                                <h3><b>진희의 CARD📌</b></h3>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="jhtext1">
+                            <div class="jhtext1-1">
+                                <div class="form-check1">
+
+                                    <select class="form-select" aria-label="Disabled select example" disabled>
+                                        <option selected>[자신]에 대한 설명 및 MBTI</option>
+                                    </select>
+
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckCheckedDisabled" checked disabled>
+                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                        나는 ENTJ!
+                                    </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled"
+                                            disabled>
+                                        <label class="form-check-label" for="flexCheckDisabled">
+                                            통솔자(ENTJ)는 타고난 지도자라고 할 수 있습니다. 라고 하네요🤷
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="form-check1">
+                                    <select class="form-select" aria-label="Disabled select example" disabled>
+                                        <option selected>[팀]에 대한 설명 및 MBTI</option>
+                                    </select>
+
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckCheckedDisabled" checked disabled>
+                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                        서로 도우며 열심히 하는 팀! (너무 감사해요...💛)
+                                    </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled"
+                                            disabled>
+                                        <label class="form-check-label" for="flexCheckDisabled">
+                                            김진희·ENTJ / 표지수·ISFP / 박주민·INTJ / 조아영·ESFP / 최종우·ISTP
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="form-check1">
+                                    <select class="form-select" aria-label="Disabled select example" disabled>
+                                        <option selected>객관적으로 살펴본 자신의 장점</option>
+                                    </select>
+
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckCheckedDisabled" checked disabled>
+                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                        열심히 한다!
+                                    </label>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled"
+                                            disabled>
+                                        <label class="form-check-label" for="flexCheckDisabled">
+                                            잘 때 빼고😥
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="form-check1">
+                                    <select class="form-select" aria-label="Disabled select example" disabled>
+                                        <option selected>우리 팀만의 특징과 목표</option>
+                                    </select>
+
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckCheckedDisabled" checked disabled>
+                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                        도움이 필요할 땐 서로가 나서서 같이 해결!
+                                    </label>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled"
+                                            disabled>
+                                        <label class="form-check-label" for="flexCheckDisabled">
+                                            노력은 하는데...💦 저도 도움이 됐으면 좋겠습니다!
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <select class="form-select" aria-label="Disabled select example" disabled>
+                                    <option selected>진희의 velog</option>
+                                </select>
+
+                                <br>
+                                <div class="jhveloglink">
+                                    <a href="https://velog.io/@heeh">
+                                        <p>👉 https://velog.io/@heeh<p>
+
+                                    </a>
+                                </div>
+
+
+
+
+                            </div>
+                        </td>
+
+                        <td rowspan="3" class="tg-0lax">
+                            <span class="jhslideshow-container">
+                                <div class="jhSlidesbackground">
+                                    <div class="jhmySlides fade">
+                                        <img src="../static/images/pt1.jpg" class="jhslideshow-image">
+                                    </div>
+                                    <div class="jhmySlides fade">
+                                        <img src="../static/images/pt2.jpg" class="jhslideshow-image">
+                                    </div>
+                                    <div class="jhmySlides fade">
+                                        <img src="../static/images/pt3.jpg" class="jhslideshow-image">
+                                    </div>
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+                var slideIndex = 0;
+                showSlides();
+
+                function showSlides() {
+                    var i;
+                    var slides = document.getElementsByClassName("jhmySlides");
+
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1;
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+
+                    setTimeout(showSlides, 1500); // 2초마다 이미지가 체인지됩니다
+                }
+
+            </script>
+        </div>
+    </div>
+    <div id="ay-comment-body">
+
+        <p id="comment-title">아영님께 댓글 달기! (✿◡‿◡)</p>
+
+        <!-- 코멘트 인풋 -->
+        <div id="comment-input">
+
+            <div class="form-floating mb-3" id="name-box">
+                <input type="text" class="form-control" placeholder="url" id="ayname"/>
+                <label for="floatingInput" style="font-size:24px; color: rgb(60, 60, 60);">Name</label>
+            </div>
+
+            <div class="form-floating mb-3" id="comment-box">
+                <input type="text" class="form-control" placeholder="url" id="aycomment" />
+                <label for="floatingInput" style="font-size: 24px; color: rgb(60, 60, 60);">Comment</label>
+            </div>
+
+            <div class="mypost" id="button-box">
+                <button onclick="ayposting()" class="btn btn-outline-secondary btn-lg"
+                        style = "font-size: 26px;" type="button" id="commitbut">✔</button>
+
+            </div>
+
+        </div>
+
+        <!-- 코멘트 아웃풋 -->
+        <div class="mycards" id="ay-comment-output">
+
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="commentchar">여기에 댓글이 노출되어요.</p>
+                        <footer class="blockquote-footer">익명</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+    </div>
+
+    <div id="jw-comment-body">
+
+        <p id="comment-title">종우님께 댓글 달기! (✿◡‿◡)</p>
+
+        <!-- 코멘트 인풋 -->
+        <div id="comment-input">
+
+            <div class="form-floating mb-3" id="name-box">
+                <input type="text" class="form-control" placeholder="url" id="jwname"/>
+                <label for="floatingInput" style="font-size:24px; color: rgb(60, 60, 60);">Name</label>
+            </div>
+
+            <div class="form-floating mb-3" id="comment-box">
+                <input type="text" class="form-control" placeholder="url" id="jwcomment" />
+                <label for="floatingInput" style="font-size: 24px; color: rgb(60, 60, 60);">Comment</label>
+            </div>
+
+            <div class="mypost" id="button-box">
+                <button onclick="jwposting()" class="btn btn-outline-secondary btn-lg"
+                        style = "font-size: 26px;" type="button" id="commitbut">✔</button>
+
+            </div>
+
+        </div>
+
+        <!-- 코멘트 아웃풋 -->
+        <div class="mycards" id="jw-comment-output">
+
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="commentchar">여기에 댓글이 노출되어요.</p>
+                        <footer class="blockquote-footer">익명</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+    </div>
+
+    <div id="js-comment-body">
+
+        <p id="comment-title">지수님께 댓글 달기! (✿◡‿◡)</p>
+
+        <!-- 코멘트 인풋 -->
+        <div id="comment-input">
+
+            <div class="form-floating mb-3" id="name-box">
+                <input type="text" class="form-control" placeholder="url" id="jsname"/>
+                <label for="floatingInput" style="font-size:24px; color: rgb(60, 60, 60);">Name</label>
+            </div>
+
+            <div class="form-floating mb-3" id="comment-box">
+                <input type="text" class="form-control" placeholder="url" id="jscomment" />
+                <label for="floatingInput" style="font-size: 24px; color: rgb(60, 60, 60);">Comment</label>
+            </div>
+
+            <div class="mypost" id="button-box">
+                <button onclick="jsposting()" class="btn btn-outline-secondary btn-lg"
+                        style = "font-size: 26px;" type="button" id="commitbut">✔</button>
+
+            </div>
+
+        </div>
+
+        <!-- 코멘트 아웃풋 -->
+        <div class="mycards" id="js-comment-output">
+
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="commentchar">여기에 댓글이 노출되어요.</p>
+                        <footer class="blockquote-footer">익명</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+    </div>
+
+    <div id="jh-comment-body">
+
+        <p id="comment-title">진희님께 댓글 달기! (✿◡‿◡)</p>
+
+        <!-- 코멘트 인풋 -->
+        <div id="comment-input">
+
+            <div class="form-floating mb-3" id="name-box">
+                <input type="text" class="form-control" placeholder="url" id="jhname"/>
+                <label for="floatingInput" style="font-size:24px; color: rgb(60, 60, 60);">Name</label>
+            </div>
+
+            <div class="form-floating mb-3" id="comment-box">
+                <input type="text" class="form-control" placeholder="url" id="jhcomment" />
+                <label for="floatingInput" style="font-size: 24px; color: rgb(60, 60, 60);">Comment</label>
+            </div>
+
+            <div class="mypost" id="button-box">
+                <button onclick="jhposting()" class="btn btn-outline-secondary btn-lg"
+                        style = "font-size: 26px;" type="button" id="commitbut">✔</button>
+
+            </div>
+
+        </div>
+
+        <!-- 코멘트 아웃풋 -->
+        <div class="mycards" id="jh-comment-output">
+
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="commentchar">여기에 댓글이 노출되어요.</p>
+                        <footer class="blockquote-footer">익명</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+    </div>
+
+    <div id="jm-comment-body">
+
+        <p id="comment-title">주민님께 댓글 달기! (✿◡‿◡)</p>
+
+        <!-- 코멘트 인풋 -->
+        <div id="comment-input">
+
+            <div class="form-floating mb-3" id="name-box">
+                <input type="text" class="form-control" placeholder="url" id="jmname"/>
+                <label for="floatingInput" style="font-size:24px; color: rgb(60, 60, 60);">Name</label>
+            </div>
+
+            <div class="form-floating mb-3" id="comment-box">
+                <input type="text" class="form-control" placeholder="url" id="jmcomment" />
+                <label for="floatingInput" style="font-size: 24px; color: rgb(60, 60, 60);">Comment</label>
+            </div>
+
+            <div class="mypost" id="button-box">
+                <button onclick="jmposting()" class="btn btn-outline-secondary btn-lg"
+                        style = "font-size: 26px;" type="button" id="commitbut">✔</button>
+
+            </div>
+
+        </div>
+
+        <!-- 코멘트 아웃풋 -->
+        <div class="mycards" id="jm-comment-output">
+
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="commentchar">여기에 댓글이 노출되어요.</p>
+                        <footer class="blockquote-footer">익명</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+    </div>
+</body>
+
+</html>

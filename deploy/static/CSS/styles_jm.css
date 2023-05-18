@@ -1,0 +1,104 @@
+/* 주민님 카드 관련 css */
+
+.jmcard {
+    position: absolute;
+    margin:auto;
+}
+
+
+    .jmbox {
+        background : url("../images/excel.jpg.png");
+        border-radius: 50px;
+        margin: 0px auto 0px auto;
+        height: 600px;
+        width: 1200px;
+        text-align: center;
+        /* padding: 10px 15px 10px 10px; */
+
+    }
+
+    .jmhead{
+        background-color: #379237;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        height: 80px;
+        width: 1200px;
+        color: white;
+        text-align: center;
+    }
+
+    .jmhead>h3{
+        font-weight: bold;
+        line-height: 80px;
+    }
+
+    .jmleft {
+        width: 550px;
+        height: 480px;
+        float: left;
+        margin: 15px;
+        /* border: 1px solid; */
+        position: relative;
+    }
+
+    .jmsbox1{
+        text-align: left;
+        padding: 10px 0 0 10px;
+        width: 340px;
+        height: 200px;
+        border: 1px solid gray;
+        margin-top: 20px;
+        margin-left: 20px;
+        background-color: white;
+        position: absolute;
+    }
+
+    .jmsbox2{
+        text-align: left;
+        transform: translate(260px, 190px);
+        padding: 10px 0 0 10px;
+        width: 250px;
+        height: 160px;
+        border: 1px solid gray;
+        background-color: white;
+        position: absolute;
+    }
+
+    .jmsbox3{
+        text-align: left;
+        transform: translate(20px, 330px);
+        padding: 10px 0 0 10px;
+        width: 300px;
+        height: 140px;
+        border: 1px solid gray;
+        background-color: white;
+        position: absolute;
+    }   
+
+    .jmright {
+        width: 605px;
+        height: 480px;
+        float: right;
+        margin: 15px 15px 15px 0;
+        /* border: 1px solid; */
+        text-align: right;
+    }
+
+    .jmpic {
+        max-width: 550px;
+        height: 400px;
+        background: url("../images/member_jumin.jpg");
+        background-size: cover;
+        margin: 10px;
+    }
+
+    .btnst{
+        background-color: #379237;
+        color: white;
+        border:none;
+        border-radius: 10px;
+        transform: translate(150px, 375px);
+        padding: 10px;
+    }
+
+

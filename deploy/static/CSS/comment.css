@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+#ay-comment-body,#jw-comment-body,#js-comment-body,#jh-comment-body,#jm-comment-body{
+    font-family: 'Poor Story', cursive;
+    background-color: rgb(225, 255, 240);
+    margin: 20px auto 20px auto;
+    padding:20px 0px 0px 0px;
+    width: 1200px;
+}
+
+#comment-title{
+    background-color: lightblue;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px 0px 5px 0px;
+}
+
+#comment-input {
+    background-color: beige;
+    width:1100px;
+    margin:0px auto 0px auto;
+}
+
+#name-box {
+    float:left;
+}
+#jsname,#ayname,#jwname,#jhname,#jmname {
+    background-color: transparent;
+}
+#comment-box {
+    float:left;
+    width:79.5%;
+    border-width:0px 0px 1px 0px;
+}
+#jscomment,#aycomment,#jmcomment,#jhcomment,#jwcomment {
+    background-color: transparent;
+}
+#button-box {
+    background-color: lightblue;
+    float:right;
+}
+
+#ay-comment-output, #jw-comment-output,#js-comment-output,#jh-comment-output,#jm-comment-output{
+    clear:both;
+    background-color: rgb(225, 255, 240);
+    margin: 0px auto 20px auto;
+    width: 1200px;
+    height: auto;
+}
+
+.card {
+    background-color: transparent;
+    margin: 0px auto 0px auto;
+    width:1100px;
+    height: 45px;
+    border:dashed;
+    border-width: 0px 0px 1px 0px;
+    border-color: black;
+}
+
+#commentchar {
+    font-size: 20px !important;
+    margin-top: -2px;
+    color: black;
+    display: inline-block;
+}
+
+.blockquote-footer {
+    display: inline-block;
+    float:right;
+    margin:0px 10px 0px 0px;
+}

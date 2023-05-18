@@ -1,0 +1,116 @@
+/* 초기 페이지 관련 CSS입니다. */
+
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+
+* {
+    font-family: 'Hahmlet', serif;
+}
+
+.title {
+    border: black solid;
+    width: 1200px;
+    height: 300px;
+    text-align: center;
+    margin: auto;
+    /* 배경이미지"만" 투명도 설정 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.postimg.cc/rm4bq8jd/9962-F6415-B10-FCD134.jpg');
+    background-position: center;
+    background-size: cover;
+    font-size: 90px;
+    font-weight: 400;
+    color: rgb(0, 255, 0);
+    padding: 60px 0px 0px 0px;
+    border-radius: 2px;
+}
+
+.team_info {
+    border: solid;
+    margin: 20px auto;
+    width: 750px;
+    height: 300px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: bisque;
+}
+.team_info_detail {
+    font-size: 20px;
+}
+
+.thumbup {
+    width: 200px;
+    height: 250px;
+    background-image: url('https://pbs.twimg.com/tweet_video_thumb/E07M16dVgAEOB0C.jpg');
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+}
+/* .thumbup :hover {
+        background-image: url('https://postimg.cc/4Kg2ySQC/2145acdc')
+    } */
+
+.team_meet {
+    text-align: center;
+    margin: 10px auto 150px auto;
+    width: 550px;
+    height: 75px;
+    border: solid;
+    font-size: 40px;
+    font-weight: bold;
+    color:white;
+    background-color: black;
+    border-radius: 15px;
+}
+
+  
+  span {
+    display: inline;
+  }
+  
+  span:not(.light) {
+    opacity: 0;
+    -webkit-animation: flashText 0.5s ease-out alternate infinite;
+            animation: flashText 0.5s ease-out alternate infinite;
+  }
+  
+  span.light {
+    position: relative;
+    display: inline-block;
+  }
+  span.light:before {
+    position: absolute;
+    left: 0;
+    top: -10%;
+    width: 100%;
+    height: 120%;
+    background: #fff;
+    filter: blur(10px);
+    content: "";
+    opacity: 0;
+    -webkit-animation: flash 0.5s ease-out alternate infinite;
+            animation: flash 0.5s ease-out alternate infinite;
+  }
+  
+  @-webkit-keyframes flash {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes flash {
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes flashText {
+    to {
+      opacity: 0.3;
+    }
+  }
+  @keyframes flashText {
+    to {
+      opacity: 0.3;
+    }
+  }

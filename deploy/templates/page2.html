@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>page2</title>
+    <link href="../static/CSS/styles_page2.css" rel="stylesheet" />
+
+    <script>
+        window.onload = function () {
+            const aTag = document.querySelectorAll('a');
+            aTag.forEach((a) => {
+                a.addEventListener('click', (event) => {
+                    localStorage.setItem("member-id", JSON.stringify(event.target.id));
+                });
+
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <H1 class='title' onClick="location.href='/'">초록색이 젤다 맞죠? </br></H1> <!-- 클릭 시 메인으로 가는 타이틀 이미지버튼-->
+
+    <table class="tg">
+        <tbody>
+            <tr>
+                <td>
+                    <div>
+                        <a href="/teamcard"><button class="btn1" id="member1"></button></a>
+                    </div>
+                    <div>
+                        <a href="/teamcard"><button class="btn2" id="member2"></button></a>
+                    </div>
+                    <div>
+                        <a href="/teamcard"><button class="btn3" id="member3"></button></a>
+                    </div>
+                    <div>
+                        <a href="/teamcard"><button class="btn4" id="member4"></button></a>
+                    </div>
+                    <div>
+                        <a href="/teamcard"><button class="btn5" id="member5"></button></a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

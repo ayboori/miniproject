@@ -1,0 +1,88 @@
+/* 종우 님 카드 관련 css 파일 */
+
+/* 카드 사이즈는 1200 600 */
+
+@font-face {
+  font-family: '하늘'; /*font 이름*/
+  font-style: 'normal'; /* font 스타일 정의 (기울임, 일반) */
+  font-weight: 400; /* font 굵기 정의 */
+  src: url('/static/fonts/a하늘B.ttf');  /* 파일 위치 정의 */
+}
+  .jwcard {
+    
+    height: 600px;
+    width: 1200px;
+    margin: auto;
+    
+    border: none;
+  }
+  .jwright {
+    width: 465px;
+    height: 600px;
+    float: right;
+    box-sizing: border-box;
+    border: 1px black solid;
+    background-color: #E3F2C1;
+    
+
+  }
+  .jwname {
+    background-color: #F6F1F1;
+    height: 60px;
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    border: none;
+  }
+
+  .jwprofile {
+    height: 510px;
+    background-image: url('../images/you.jpeg');
+    background-position: center;
+    background-size: cover;
+    border: none;
+  }
+
+
+  .jwblog_btn {
+    
+    margin: 2px 0px 2px 165px;
+    width: 150px;
+    height: 25px;
+    color: white;
+    cursor: pointer;
+    border: 2px skyblue;
+    border-radius: 15px;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+
+  }
+
+ .jwleft {
+    width: 720px;
+    height: 600px;
+    float: left;
+    box-sizing: border-box;
+    border: none;
+    background: #FFFAF4;
+  }
+
+  .jwans1 {
+    font-family: 하늘;
+    font-weight: bold;
+    font-size : 30px;
+    width: 510px;
+    height: 165px;
+    border: 3px solid;
+    margin: 30px auto 10px auto;
+    border-radius: 15px;
+    text-align: center;
+  }
+ 
+   .jwans2 {
+    font-size : 18px;
+    font-weight: 500;
+    margin-top: 5px;
+   }

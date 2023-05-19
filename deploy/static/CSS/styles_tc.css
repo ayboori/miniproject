@@ -3,7 +3,7 @@
 /* 카드 사이즈는 1200 600 */
 
 @font-face {
-  font-family: '하늘'; /*font 이름*/
+  font-family: 'sky'; /*font 이름*/
   font-style: 'normal'; /* font 스타일 정의 (기울임, 일반) */
   font-weight: 400; /* font 굵기 정의 */
   src: url('/static/fonts/a하늘B.ttf');  /* 파일 위치 정의 */
@@ -70,7 +70,7 @@
   }
 
   .jwans1 {
-    font-family: 하늘;
+    font-family: 'sky';
     font-weight: bold;
     font-size : 30px;
     width: 510px;

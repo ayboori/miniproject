@@ -25,7 +25,7 @@ HTML, CSS, JavaScript, Python
 
 ![image](https://github.com/ayboori/miniproject/assets/105356296/341ebd7c-6914-455b-aef2-d22267c5a6fa)
 
-피츄를 보러 가보
+피츄를 보러 가보자! 
 
 ## 팀원 카드 화면
 

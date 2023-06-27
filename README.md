@@ -1,8 +1,7 @@
 # miniproject - teamcards
-백엔드 개발자들의 웹 페이지 종합 개발 연습 프로젝트  
-~ 첫 번째 팀 프로젝트이므로 더 발전할 모습을 기대해봅시다 ~
+3학년 백엔드 학부생들의 웹 페이지 종합 개발 연습 프로젝트
 
-현재 배포한 상태이므로 직접 방문해볼 수 있다.
+~~현재 배포한 상태이므로 직접 방문해볼 수 있다.~~ >  AWS 배포 중단 상태!
 
 ## 사용 기술
 HTML, CSS, JavaScript, Python
@@ -30,7 +29,8 @@ HTML, CSS, JavaScript, Python
 ## 팀원 카드 화면
 
 위에서 선택한 포켓몬에 맞는 팀원의 카드가 나온다!
-방금 선택한 피츄는... 나였다.
+
+방금 선택한 피츄는...   나였다.
 
 ![image](https://github.com/ayboori/miniproject/assets/105356296/ae2485b4-4538-4444-b7d8-12fa1b4a4a50)
 

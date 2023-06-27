@@ -9,7 +9,7 @@ HTML, CSS, JavaScript, Python
 
 [> 방문해서 댓글 남겨 보기!](http://intro3.eba-p9ka6mdm.ap-northeast-2.elasticbeanstalk.com/)
 
-[> 하루하루 나의 고뇌의 과정을 보러 가기](https://velog.io/@ayoung3052?tag=Week1)
+[> 하루하루 나의 고뇌의 과정을 보러 가기](https://velog.io/@ayoung3052?tag=%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C%EC%82%AC%EC%9D%B4%ED%8A%B8)
 
 <hr style = "border:0 background; height: 5px; color : black">
 
